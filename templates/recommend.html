@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Recommendations</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Arial", sans-serif;
+      }
+
+      body {
+        background-color: #f8f9fa;
+        color: #333;
+        line-height: 1.6;
+      }
+
+      .container {
+        width: 90%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 15px;
+      }
+
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+      /*Navigation*/
+      /* Navigation */
+      nav {
+        background-color: #2d3748;
+        color: white;
+        padding: 1rem 0;
+      }
+
+      .nav-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .logo {
+        font-size: 1.5rem;
+        font-weight: bold;
+      }
+
+      .nav-links a {
+        margin-left: 1.5rem;
+        transition: color 0.3s;
+      }
+
+      .nav-links a:hover {
+        color: #90cdf4;
+      }
+
+      h1,
+      h2 {
+        color: #1a56db; /* Your suggested blue */
+        border-bottom: 2px solid #1a56db;
+        padding-bottom: 5px;
+        margin-top: 20px;
+      }
+
+      h1 {
+        border-bottom: none;
+        padding-bottom: 0;
+      }
+
+      .section {
+        margin-bottom: 20px;
+        padding: 15px;
+        border-radius: 6px;
+        background-color: #e0f2f7; /* Light cyan section background */
+      }
+
+      .video-list {
+        list-style: none;
+        padding-left: 0;
+      }
+
+      .video-item {
+        margin-bottom: 10px;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        background-color: #f9f9f9;
+      }
+
+      .video-item a {
+        text-decoration: none;
+        color: #337ab7; /* Example link color */
+      }
+
+      .tip-list {
+        list-style: disc;
+        padding-left: 20px;
+      }
+
+      .idea-list {
+        list-style: square;
+        padding-left: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <div class="container nav-container">
+        <a href="/" class="logo">ResumeAI</a>
+        <div class="nav-links">
+          <a href="/">Home</a>
+          <a href="/resume_upload">Analyze Resume</a>
+          <a href="/resume_upload">Recommendations</a>
+        </div>
+      </div>
+    </nav>
+
+    <h2>Resume Writing Tips</h2>
+    <h3>{{ resume_title }}</h3>
+    <a href="{{ resume_link }}" target="_blank">
+      <img src="https://img.youtube.com/vi/{{ resume_id }}/0.jpg"
+           alt="Resume Video Thumbnail"
+           width="480"
+           style="border-radius: 10px; border: 1px solid #ccc;">
+    </a>
+    
+    <h2>Interview Preparation Tips</h2>
+    <h3>{{ interview_title }}</h3>
+    <a href="{{ interview_link }}" target="_blank">
+      <img src="https://img.youtube.com/vi/{{ interview_id }}/0.jpg"
+           alt="Interview Video Thumbnail"
+           width="480"
+           style="border-radius: 10px; border: 1px solid #ccc;">
+    </a>
+
+      <div class="section">
+        <h2>Resume Tips</h2>
+        <ul class="tip-list" id="resume-tips">
+          <li>
+            Tailor your resume to each job application. Highlight the skills and
+            experiences most relevant to the specific role.
+          </li>
+          <li>
+            Use strong action verbs to describe your responsibilities and
+            achievements (e.g., Developed, Managed, Implemented, Analyzed).
+          </li>
+          <li>
+            Quantify your achievements whenever possible. Instead of saying
+            "Improved sales," say "Increased sales by 15% in the last quarter."
+          </li>
+          <li>
+            Keep your resume concise and easy to read. Aim for one page if you
+            have less than 10 years of experience.
+          </li>
+          <li>
+            Proofread your resume meticulously for any typos or grammatical
+            errors. Ask someone else to review it as well.
+          </li>
+        </ul>
+      </div>
+
+      <div class="section">
+        <h2>Resume Ideas</h2>
+        <ul class="idea-list" id="resume-ideas">
+          <li>
+            Consider using a clean and professional resume template. There are
+            many free and paid options available online.
+          </li>
+          <li>
+            If you have a portfolio or online presence (e.g., LinkedIn, GitHub),
+            include links to them on your resume.
+          </li>
+          <li>
+            For creative roles, consider a visually appealing resume design that
+            showcases your style (while still being professional).
+          </li>
+          <li>
+            Think about including a brief professional summary or objective
+            statement at the top of your resume to highlight your key
+            qualifications.
+          </li>
+          <li>
+            If you have gaps in your employment history, be prepared to address
+            them honestly and briefly.
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <script>
+      // You can add JavaScript here to dynamically update the content
+      // of the video list, tips, or ideas if you have a data source.
+
+      // Example of dynamically adding a video (optional)
+      document.addEventListener("DOMContentLoaded", function () {
+        const videosList = document.getElementById("recommended-videos");
+        const newVideoItem = document.createElement("li");
+        newVideoItem.classList.add("video-item");
+        newVideoItem.innerHTML =
+          '<a href="https://www.example.com/video4" target="_blank">The Importance of Keywords in Your Resume</a>';
+        videosList.appendChild(newVideoItem);
+
+        // Example of dynamically adding a tip (optional)
+        const tipsList = document.getElementById("resume-tips");
+        const newTipItem = document.createElement("li");
+        newTipItem.textContent =
+          "Use consistent formatting throughout your resume.";
+        tipsList.appendChild(newTipItem);
+      });
+    </script>
+  </body>
+</html>

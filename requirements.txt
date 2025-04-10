@@ -1,0 +1,15 @@
+Flask
+pyresparser
+PyPDF2
+werkzeug
+yt-dlp
+spacy
+nltk
+pdfminer.six
+tqdm
+numpy
+pandas
+dateparser
+s3transfer
+python-dateutil
+docx2txt

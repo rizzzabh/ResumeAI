@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Resume Analysis</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Arial", sans-serif;
+      }
+
+      body {
+        background-color: #f8f9fa;
+        color: #333;
+        line-height: 1.6;
+      }
+
+      .container {
+        width: 90%;
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 15px;
+      }
+
+      a {
+        text-decoration: none;
+        color: inherit;
+      }
+      /*Navigation*/
+      nav {
+        background-color: #2d3748;
+        color: white;
+        padding: 1rem 0;
+      }
+
+      .nav-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .logo {
+        font-size: 1.5rem;
+        font-weight: bold;
+      }
+
+      .nav-links a {
+        margin-left: 1.5rem;
+        transition: color 0.3s;
+      }
+
+      .nav-links a:hover {
+        color: #90cdf4;
+      }
+
+      h2 {
+        color: #1a56db; /* Your suggested blue */
+        border-bottom: 2px solid #1a56db;
+        padding-bottom: 5px;
+        margin-top: 20px;
+      }
+
+      .info-item {
+        margin-bottom: 10px;
+      }
+
+      .skills-list {
+        list-style: disc;
+        padding-left: 20px;
+      }
+
+      .score-container {
+        margin-top: 20px;
+        padding: 15px;
+        background-color: #e0f2f7; /* Light cyan */
+        border-radius: 6px;
+        text-align: center;
+        background-image: linear-gradient(
+          to right,
+          #e0f2f7,
+          #f5faff
+        ); /* Subtle gradient for the score box */
+      }
+
+      .score-value {
+        font-size: 2em;
+        color: #1a56db; /* Your suggested blue */
+        font-weight: bold;
+      }
+
+      .skills-list,
+      .courses-list {
+        list-style-type: none;
+        padding: 0;
+      }
+
+      .skills-list li,
+      .courses-list li {
+        background: #f0f0f0;
+        padding: 8px 12px;
+        margin: 6px 0;
+        border-radius: 6px;
+      }
+    </style>
+  </head>
+  <body>
+    <nav>
+      <div class="container nav-container">
+        <a href="/" class="logo">ResumeAI</a>
+        <div class="nav-links">
+          <a href="/">Home</a>
+          <a href="/resume_upload">Analyze Resume</a>
+          <a href="/resume_upload">Recommendations</a>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container">
+      <h1>Resume Analysis</h1>
+
+      <h2>Basic Information</h2>
+      <div class="info-item">
+        <strong>Name:</strong>
+        <span id="name">{{ resume_data.get('name', 'N/A') }}</span>
+      </div>
+      <div class="info-item">
+        <strong>Email:</strong>
+        <span id="email">{{ resume_data.get('email', 'N/A') }}</span>
+      </div>
+      <div class="info-item">
+        <strong>Phone:</strong>
+        <span id="phone">{{ resume_data.get('mobile_number', 'N/A') }}</span>
+      </div>
+
+      <h3>
+        We identified your field as:
+        <span style="color: #1ed760">{{ field }}</span>
+      </h3>
+
+      {% if resume_data %}
+      <h2>Skills:</h2>
+      <ul class="skills-list">
+        {% for skill in resume_data.get('skills', []) %}
+        <li>{{ skill }}</li>
+        {% endfor %}
+      </ul>
+      {% else %}
+      <p>No resume data available.</p>
+      {% endif %}
+
+      <h2>Resume Score: {{ score }}/100</h2>
+
+      <h3>Resume Tips & Ideas 💡</h3>
+      <ul>
+        {% for tip, is_positive in tips %}
+        <li style="color: {{ 'green' if is_positive else 'black' }};">
+          {{ tip }}
+        </li>
+        {% endfor %}
+      </ul>
+      <!-- Recommended Skills Section -->
+      <h2>Recommended Skills</h2>
+      <ul class="skills-list" id="recommended-skills">
+        {% for skill in skills %}
+        <li>{{ skill }}</li>
+        {% endfor %}
+      </ul>
+
+      <!-- Recommended Courses Section -->
+      <h2>Recommended Courses & Certifications 🎓</h2>
+      <ul class="courses-list" id="recommended-courses">
+        {% for course in courses %}
+        <li><a href="{{ course[1] }}" target="_blank">{{ course[0] }}</a></li>
+        {% endfor %}
+      </ul>
+    </div>
+  </body>
+</html>
