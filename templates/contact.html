@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact - ResumeAI</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-gray-50">
+    <header class="bg-white shadow">
+      <div
+        class="max-w-5xl mx-auto px-6 py-5 flex items-center justify-between"
+      >
+        <a href="/" class="text-2xl font-bold text-indigo-600">ResumeAI</a>
+        <nav class="space-x-4">
+          <a href="/" class="text-gray-600 hover:text-indigo-600">Home</a>
+          <a href="/pricing" class="text-gray-600 hover:text-indigo-600"
+            >Pricing</a
+          >
+        </nav>
+      </div>
+    </header>
+
+    <main class="max-w-2xl mx-auto py-12 px-6">
+      <div class="bg-white rounded-lg shadow p-6">
+        <h1 class="text-2xl font-semibold mb-4">Contact Us</h1>
+        <form action="/contact" method="post" class="space-y-4">
+          <div>
+            <label class="block text-sm text-gray-600">Name</label>
+            <input
+              name="name"
+              class="mt-1 block w-full border-gray-200 rounded p-2"
+            />
+          </div>
+          <div>
+            <label class="block text-sm text-gray-600">Email</label>
+            <input
+              name="email"
+              class="mt-1 block w-full border-gray-200 rounded p-2"
+            />
+          </div>
+          <div>
+            <label class="block text-sm text-gray-600">Message</label>
+            <textarea
+              name="message"
+              class="mt-1 block w-full border-gray-200 rounded p-2 h-32"
+            ></textarea>
+          </div>
+          <div>
+            <button
+              type="submit"
+              class="bg-indigo-600 text-white px-4 py-2 rounded"
+            >
+              Send
+            </button>
+          </div>
+        </form>
+      </div>
+    </main>
+
+    <footer class="py-6 text-center text-gray-500">© ResumeAI</footer>
+  </body>
+</html>

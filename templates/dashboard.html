@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dashboard - ResumeAI</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body class="bg-gray-100">
+    <header class="bg-white shadow">
+      <div
+        class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 flex items-center justify-between"
+      >
+        <a href="/" class="text-2xl font-bold text-indigo-600">ResumeAI</a>
+        <nav class="space-x-4">
+          <a href="/resume_upload" class="text-gray-600 hover:text-indigo-600"
+            >Analyze</a
+          >
+          <a href="/recommender" class="text-gray-600 hover:text-indigo-600"
+            >Recommendations</a
+          >
+          <a href="/courses" class="text-gray-600 hover:text-indigo-600"
+            >Courses</a
+          >
+        </nav>
+      </div>
+    </header>
+
+    <main class="max-w-7xl mx-auto p-6">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div class="col-span-2">
+          <div class="bg-white rounded-lg shadow p-6">
+            <h2 class="text-xl font-semibold mb-4">Recent Resume Analysis</h2>
+            <div class="space-y-4">
+              <div
+                class="flex items-center justify-between p-4 bg-gray-50 rounded"
+              >
+                <div>
+                  <div class="font-medium">John Doe</div>
+                  <div class="text-sm text-gray-500">Scored 75/100</div>
+                </div>
+                <div>
+                  <a href="/analyse" class="text-indigo-600">View</a>
+                </div>
+              </div>
+              <div
+                class="flex items-center justify-between p-4 bg-gray-50 rounded"
+              >
+                <div>
+                  <div class="font-medium">Jane Smith</div>
+                  <div class="text-sm text-gray-500">Scored 62/100</div>
+                </div>
+                <div>
+                  <a href="/analyse" class="text-indigo-600">View</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="bg-white rounded-lg shadow p-6 mt-6">
+            <h2 class="text-xl font-semibold mb-4">Action Center</h2>
+            <div class="flex gap-4">
+              <a
+                href="/resume_upload"
+                class="px-4 py-2 bg-indigo-600 text-white rounded"
+                >Upload Resume</a
+              >
+              <a href="/recommender" class="px-4 py-2 bg-gray-200 rounded"
+                >Get Tips</a
+              >
+            </div>
+          </div>
+        </div>
+        <aside>
+          <div class="bg-white rounded-lg shadow p-6">
+            <h3 class="text-lg font-semibold mb-3">Profile</h3>
+            <div class="text-sm text-gray-600">No user signed in</div>
+          </div>
+          <div class="bg-white rounded-lg shadow p-6 mt-6">
+            <h3 class="text-lg font-semibold mb-3">Suggested Courses</h3>
+            <ul class="text-sm text-gray-600 space-y-2">
+              <li>Intro to Machine Learning</li>
+              <li>Django Crash Course</li>
+              <li>Figma Essentials</li>
+            </ul>
+          </div>
+        </aside>
+      </div>
+    </main>
+
+    <footer class="text-center py-6 text-gray-500">© ResumeAI</footer>
+  </body>
+</html>
